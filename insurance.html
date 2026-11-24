@@ -55,7 +55,7 @@
   </div>
 </section>
 
-<svg class="seam" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22 L140 18 L210 26 L330 14 L395 21 L520 19 L600 28 L640 20 L760 12 L830 23 L905 17 L1010 25 L1090 15 L1200 20"/><path class="branch" d="M600 28 L622 38"/><path class="branch" d="M760 12 L772 2"/></svg>
+<div class="seam-line" aria-hidden="true"></div>
 <section>
   <div class="wrap split">
     <div>
@@ -91,7 +91,7 @@
   var root=document.documentElement,calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!calm&&'IntersectionObserver' in window){
     root.classList.add('motion');
-    document.querySelectorAll('.section-head,.reveal-kids>*,.seam,.reveal').forEach(function(el,i){
+    document.querySelectorAll('.section-head,.reveal-kids>*,.seam,.seam-line,.reveal').forEach(function(el,i){
       el.setAttribute('data-reveal','');var sib=el.parentElement&&el.parentElement.classList.contains('reveal-kids')?Array.prototype.indexOf.call(el.parentElement.children,el):0;el.style.setProperty('--d',Math.min(sib,6)*80+'ms');});
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.1});
     document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el);});
