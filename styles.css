@@ -244,7 +244,10 @@ fieldset { border: 0; padding: 0; margin: 0; }
 .site-foot ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
 .site-foot a { color: #E8E2D6; text-decoration: none; }
 .site-foot a:hover { color: #E5C584; }
-.foot-brand img { width: 100%; max-width: 270px; height: auto; margin-top: -8px; }
+.foot-brand { align-self: start; }
+/* Footer logo trimmed to its artwork (content box x 76–934, y 56–374 of the 1000x416 file, plus 8px) so it lines up with the columns */
+.foot-crop { position: relative; width: 100%; max-width: 280px; aspect-ratio: 874 / 334; overflow: hidden; }
+.foot-crop img { position: absolute; max-width: none; height: auto; width: 114.42%; left: -7.78%; top: -14.37%; }
 .site-foot .fine { grid-column: 1 / -1; border-top: 1px solid rgba(232, 226, 214, 0.14); padding-top: 22px; font-size: 0.85rem; }
 .site-foot + .cta-bar, .cta-bar { display: none; }
 .site-foot { margin-top: 0; }
@@ -302,9 +305,9 @@ body > .seam { background: transparent; }
   .hero .btn-row .btn { flex: 1 1 100%; }
 }
 
-/* Hero: the round "K" mark cut from the logo file (measured: in the 1000x416 file the gold ring spans x 76–384, top at y 56) */
+/* Hero: the round "K" mark cut from the logo file (circle fit to the gold ring in the 1000x416 file: center 230.5,213.8, radius 153.5; crop = radius + 4px) */
 .logo-crop { position: relative; width: 66%; aspect-ratio: 1; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 1px rgba(194, 155, 82, 0.35), 0 20px 50px rgba(0, 0, 0, 0.35); }
-.hero-art .logo-crop img { position: absolute; max-width: none; width: 320.5%; left: -23.72%; top: -17.31%; }
+.hero-art .logo-crop img { position: absolute; max-width: none; height: auto; width: 317.46%; left: -23.16%; top: -17.87%; }
 
 /* Straight seam: where two colors meet, the edge itself is "mended" with a gold line that draws out from the center */
 .seam-line { position: relative; z-index: 2; height: 2px; margin: -1px 0; pointer-events: none;
