@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Contact & Inquiry | Kintsugi Psychiatry Collective</title>
+<meta name="description" content="Send an inquiry and our team will reach out to talk through next steps.">
+<meta name="theme-color" content="#223038">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Marcellus&family=Instrument+Sans:wght@400..600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-contact">
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Kintsugi Psychiatry Collective, home"><span class="mark" aria-hidden="true"></span><span class="brand-text"><span class="brand-name">Kintsugi</span><span class="brand-sub">Psychiatry Collective</span></span></a>
+  <nav class="nav" id="nav" aria-label="Main"><a href="services.html">Services</a><a href="spravato.html">What is Spravato?</a><a href="about.html">About</a><a href="insurance.html">Insurance</a><a href="contact.html" aria-current="page">Contact</a><a class="btn btn-gold btn-small nav-cta" href="contact.html#inquiry">Send an inquiry</a></nav>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+</div></header>
+<main id="top">
+<section class="page-hero">
+  <div class="wrap narrow">
+    <p class="eyebrow">Contact</p>
+    <h1>Send us an <em>inquiry</em></h1>
+    <p class="lede">A few details is all we need. Our team will call you back to talk about next steps.</p>
+  </div>
+</section>
+
+<section style="padding-top:10px" id="inquiry">
+  <div class="wrap contact-grid">
+    <div>
+      <form class="inquiry" id="inquiryForm" data-endpoint="" novalidate>
+        <fieldset>
+          <legend>I am…</legend>
+          <div class="choices">
+            <label><input type="radio" name="who" value="Patient" required checked> Looking for care for myself</label>
+            <label><input type="radio" name="who" value="Family member"> A family member</label>
+            <label><input type="radio" name="who" value="Provider"> A provider making a referral</label>
+          </div>
+        </fieldset>
+        <div class="field-row">
+          <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-time">Best time to call</label>
+            <select id="f-time" name="best_time"><option>Any time</option><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div>
+        </div>
+        <div class="field"><label for="f-ins">Insurance plan <span class="hint">(optional)</span></label><input id="f-ins" name="insurance" type="text" placeholder="e.g. Aetna, Medicare"></div>
+        <div class="field">
+          <label for="f-msg">Anything else? <span class="hint">(optional)</span></label>
+          <textarea id="f-msg" name="message" placeholder="How did you hear about us? Any questions?"></textarea>
+          <span class="hint">Please don't include medical details here. We'll talk about your health privately by phone.</span>
+        </div>
+        <label class="consent"><input type="checkbox" name="consent" value="yes" required> I agree to be contacted by phone or email about my inquiry.</label>
+        <div class="btn-row"><button class="btn btn-gold" type="submit">Send inquiry</button></div>
+        <p class="todo">How this form works: it sends straight to your front-desk Google Workspace inbox (and a Google Sheet, if you like). Which address should get it? On this sample, pressing Send only shows the thank-you message.</p>
+      </form>
+      <div class="form-done" id="formDone" hidden tabindex="-1">
+        <h2>Thank you</h2>
+        <p class="lede" style="margin:0 auto">We got your inquiry and will call you soon.</p>
+        <p class="muted small" style="margin-top:16px">If you are in crisis, call or text <a href="tel:988">988</a>, or call 911.</p>
+      </div>
+    </div>
+
+    <aside class="side-card">
+      <h3>Reach us</h3>
+      <div class="row"><span class="lbl">Phone</span><span class="todo-inline">Phone number</span></div>
+      <div class="row"><span class="lbl">Email</span><a href="mailto:Admin@KintsugiPsych.org">Admin@KintsugiPsych.org</a></div>
+      <hr>
+      <div class="row"><span class="lbl">Office</span><span class="todo-inline">Office address</span></div>
+      <div class="row"><span class="lbl">Hours</span><span class="todo-inline">Office hours</span></div>
+      <hr>
+      <div class="row"><span class="lbl">Current patients</span><a href="#pq-todo">Patient forms &amp; portal (PracticeQ)</a><span class="todo-inline" style="margin-top:6px;justify-self:start">PracticeQ link</span></div>
+      <hr>
+      <p class="small"><strong>In crisis?</strong> Call or text <a href="tel:988">988</a>, or call 911. Inquiries are not monitored around the clock.</p>
+    </aside>
+  </div>
+</section>
+
+<section class="band-mist" style="padding:48px 0"><div class="wrap"><p class="todo"><strong>Map:</strong> once we have your address we'll add a small map and parking or entrance notes here.</p></div></section>
+
+<script>
+  // Pre-select "provider" when coming from the referral button.
+  if (/[?&]who=provider/.test(location.search)) { var r = document.querySelector('input[name=who][value=Provider]'); if (r) r.checked = true; }
+</script>
+</main>
+<svg class="seam" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22 L140 18 L210 26 L330 14 L395 21 L520 19 L600 28 L640 20 L760 12 L830 23 L905 17 L1010 25 L1090 15 L1200 20"/><path class="branch" d="M600 28 L622 38"/><path class="branch" d="M760 12 L772 2"/></svg>
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-brand"><img src="assets/logo.webp" alt="Kintsugi Psychiatry Collective" width="1000" height="416" loading="lazy"></div>
+  <div><h3>Visit</h3><ul><li><span class="todo-inline">Office address</span></li><li><span class="todo-inline">Office hours</span></li></ul></div>
+  <div><h3>Contact</h3><ul><li><span class="todo-inline">Phone number</span></li><li><a href="mailto:Admin@KintsugiPsych.org">Admin@KintsugiPsych.org</a></li><li><a href="contact.html#inquiry">Send an inquiry</a></li><li><a href="#pq-todo">Patient forms (PracticeQ)</a></li></ul></div>
+  <div><h3>Learn</h3><ul><li><a href="services.html">Services</a></li><li><a href="spravato.html">What is Spravato?</a></li><li><a href="insurance.html">Insurance</a></li><li><a href="about.html">Our team</a></li></ul></div>
+  <p class="fine"><strong>In crisis?</strong> Call or text <a href="tel:988">988</a>, or call 911. We are not an emergency service. · <a href="#privacy-todo">Notice of Privacy Practices</a> · © 2026 Kintsugi Psychiatry Collective</p>
+</div></footer>
+<div class="cta-bar"><a class="btn btn-gold" href="contact.html#inquiry">Send an inquiry</a></div>
+<script>
+(function(){
+  var root=document.documentElement,calm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!calm&&'IntersectionObserver' in window){
+    root.classList.add('motion');
+    document.querySelectorAll('.section-head,.reveal-kids>*,.seam,.reveal').forEach(function(el,i){
+      el.setAttribute('data-reveal','');var sib=el.parentElement&&el.parentElement.classList.contains('reveal-kids')?Array.prototype.indexOf.call(el.parentElement.children,el):0;el.style.setProperty('--d',Math.min(sib,6)*80+'ms');});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.1});
+    document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el);});
+  }
+  var head=document.querySelector('.site-head');
+  if(head){var hs=function(){head.classList.toggle('scrolled',window.scrollY>8);};hs();window.addEventListener('scroll',hs,{passive:true});}
+  var b=document.getElementById('menuBtn'),n=document.getElementById('nav');
+  if(b&&n)b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu';});
+  var bar=document.querySelector('.cta-bar'),hb=document.querySelector('.hero .btn-row, .page-hero');
+  if(bar&&hb&&'IntersectionObserver' in window)new IntersectionObserver(function(e){bar.classList.toggle('tucked',e[0].isIntersecting);}).observe(hb);
+  // Inquiry form: posts to the practice's Google Workspace (Apps Script) when an endpoint is set; otherwise shows a demo message.
+  var f=document.getElementById('inquiryForm');
+  if(f)f.addEventListener('submit',function(e){
+    e.preventDefault();if(!f.reportValidity())return;
+    var done=document.getElementById('formDone'),url=f.getAttribute('data-endpoint'),btn=f.querySelector('button[type=submit]');
+    function show(){f.hidden=true;done.hidden=false;done.focus();}
+    if(!url){show();return;}
+    btn.disabled=true;btn.textContent='Sending…';
+    fetch(url,{method:'POST',mode:'no-cors',body:new FormData(f)}).then(show).catch(function(){btn.disabled=false;btn.textContent='Send inquiry';alert('Sorry, that did not send. Please email us instead.');});
+  });
+})();
+</script>
+</body>
+</html>
