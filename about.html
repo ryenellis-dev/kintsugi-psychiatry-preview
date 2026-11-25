@@ -89,8 +89,9 @@
   if(head){var hs=function(){head.classList.toggle('scrolled',window.scrollY>8);};hs();window.addEventListener('scroll',hs,{passive:true});}
   var b=document.getElementById('menuBtn'),n=document.getElementById('nav');
   if(b&&n)b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu';});
-  var bar=document.querySelector('.cta-bar'),hb=document.querySelector('.hero .btn-row, .page-hero');
-  if(bar&&hb&&'IntersectionObserver' in window)new IntersectionObserver(function(e){bar.classList.toggle('tucked',e[0].isIntersecting);}).observe(hb);
+  // Phone bottom bar: hidden while the page's own top buttons or the footer are on screen, so it never covers them.
+  var bar=document.querySelector('.cta-bar'),hb=document.querySelector('.hero .btn-row, .page-hero'),ft=document.querySelector('.site-foot');
+  if(bar&&'IntersectionObserver' in window){var seen=new Map();var bo=new IntersectionObserver(function(es){es.forEach(function(e){seen.set(e.target,e.isIntersecting);});var any=false;seen.forEach(function(v){if(v)any=true;});bar.classList.toggle('tucked',any);});if(hb)bo.observe(hb);if(ft)bo.observe(ft);}
   // Inquiry form: posts to the practice's Google Workspace (Apps Script) when an endpoint is set; otherwise shows a demo message.
   var f=document.getElementById('inquiryForm');
   if(f)f.addEventListener('submit',function(e){

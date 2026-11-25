@@ -107,8 +107,6 @@ p + p { margin-top: 0.9em; }
 .hero-art .arch-wood { position: absolute; inset: 66% 0 0 0; }
 .hero-art .arch-wood::before { content: ""; position: absolute; inset: 0 0 auto; height: 2px; background: var(--gold); opacity: 0.9; }
 .hero-art .arch-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 22px; color: #2A1E12; font-family: var(--caps); letter-spacing: 0.08em; font-size: 0.95rem; text-align: center; }
-.hero-art .chip-float { position: absolute; left: -28px; bottom: 22%; background: var(--surface); border-radius: 14px; padding: 12px 16px; box-shadow: 0 12px 30px rgba(31, 43, 51, 0.16); font-size: 0.9rem; display: flex; gap: 10px; align-items: center; max-width: 250px; line-height: 1.35; }
-.chip-float .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--teal); flex: none; box-shadow: 0 0 0 5px var(--teal-soft); }
 
 /* Page hero (inner pages) */
 .page-hero { background: linear-gradient(180deg, #E4EBEE, var(--bg)); padding: clamp(44px, 7vw, 84px) 0 clamp(36px, 5vw, 56px); }
@@ -117,8 +115,9 @@ p + p { margin-top: 0.9em; }
 /* Info strip */
 .infostrip { background: var(--slate); color: #E8E2D6; font-size: 0.95rem; }
 .infostrip .wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 40px; padding-block: 18px; }
-.infostrip span { display: inline-flex; align-items: center; gap: 10px; }
-.infostrip i { width: 7px; height: 7px; transform: rotate(45deg); background: var(--gold); display: inline-block; }
+.infostrip span { display: inline-block; position: relative; padding-left: 19px; }
+.infostrip i { position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px; transform: rotate(45deg); background: var(--gold); }
+.infostrip .todo-inline { margin-left: 4px; }
 .infostrip a { color: #fff; }
 
 /* Sections */
@@ -280,8 +279,7 @@ body > .seam { background: transparent; }
   .hero-art { justify-self: center; max-width: 300px; aspect-ratio: 1 / 1; margin-top: 8px; }
   .hero-art .arch-slate { inset: 0 0 26% 0; }
   .hero-art .arch-wood { inset: 74% 0 0 0; }
-  .hero-art .chip-float { left: -8px; bottom: 12%; }
-  .grid-3, .grid-2, .facts { grid-template-columns: 1fr; }
+    .grid-3, .grid-2, .facts { grid-template-columns: 1fr; }
   .site-foot .wrap { grid-template-columns: 1fr 1fr; }
   .foot-brand { grid-column: 1 / -1; }
   .team-full .person { flex-direction: column; }
@@ -289,7 +287,8 @@ body > .seam { background: transparent; }
   .cta-bar { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(34, 48, 56, 0.97); transition: transform .25s; }
   .cta-bar .btn { flex: 1; }
   .cta-bar.tucked { transform: translateY(110%); }
-  body { padding-bottom: 76px; }
+  /* Phones: the info strip becomes a neat left-aligned list */
+  .infostrip .wrap { flex-direction: column; align-items: flex-start; gap: 10px; width: fit-content; max-width: 100%; }
 }
 @media (max-width: 560px) {
   body { font-size: 16px; }
